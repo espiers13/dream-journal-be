@@ -15,7 +15,7 @@ module.exports = [
     tags: ["anxiety", "recurring"],
   },
   {
-    user_id: 3,
+    user_id: 2,
     date_logged: "2025-06-19",
     description:
       "A giant wave chased me through a forest. Every time I hid, it found me again. I woke up feeling breathless.",
@@ -23,7 +23,7 @@ module.exports = [
   },
   {
     user_id: 4,
-    date_logged: "2025-06-15",
+    date_logged: "2025-12-15",
     description:
       "I kept waking up in my bed only to find myself still dreaming. The room had subtle differences each time.",
     tags: ["lucid", "recurring"],
@@ -37,7 +37,7 @@ module.exports = [
   },
   {
     user_id: 1,
-    date_logged: "2025-06-12",
+    date_logged: "2024-02-12",
     description:
       "I was lost in a never-ending library. Every book was blank. I started to panic when I couldn’t find the exit.",
     tags: ["anxiety"],
@@ -50,7 +50,7 @@ module.exports = [
     tags: ["recurring", "anxiety"],
   },
   {
-    user_id: 3,
+    user_id: 2,
     date_logged: "2025-06-11",
     description:
       "I met a future version of myself who warned me about a decision I hadn’t made yet. Woke up confused but inspired.",

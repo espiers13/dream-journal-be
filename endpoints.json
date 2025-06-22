@@ -1,0 +1,90 @@
+{
+  "GET /api": {
+    "description": "serves a JSON representation of all available endpoints of the API"
+  },
+  "POST /api/auth/login": {
+    "description": "logs in a user and returns their details if credentials are correct",
+    "accepts": {
+      "username": "emilys123",
+      "password": "testpassword"
+    },
+    "exampleResponse": {
+      "user_id": 1,
+      "username": "emilys123",
+      "email": "emily@example.com"
+    }
+  },
+  "POST /api/users": {
+    "description": "registers a new user",
+    "accepts": {
+      "username": "emilys123",
+      "email": "emily@example.com",
+      "password": "testpassword"
+    },
+    "exampleResponse": {
+      "user_id": 5,
+      "username": "emilys123",
+      "email": "emily@example.com"
+    }
+  },
+  "DELETE /api/users/:user_id": {
+    "description": "deletes a user by their user_id",
+    "exampleResponse": {}
+  },
+  "GET /api/users/:user_id/dreams": {
+    "description": "serves an array of dreams for a specific user",
+    "queries": ["tag=lucid", "from=2025-06-01", "to=2025-06-30", "sort=asc"],
+    "exampleResponse": [
+      {
+        "dream_id": 1,
+        "user_id": 5,
+        "date_logged": "2025-06-20",
+        "description": "I was flying over a neon city...",
+        "tags": ["lucid"]
+      }
+    ]
+  },
+  "POST /api/users/:user_id/dreams": {
+    "description": "posts a new dream for a user",
+    "accepts": {
+      "description": "I was flying over a neon city...",
+      "date_logged": "2025-06-20",
+      "tags": ["lucid", "night"]
+    },
+    "exampleResponse": {
+      "dream_id": 2,
+      "user_id": 5,
+      "date_logged": "2025-06-20",
+      "description": "I was flying over a neon city...",
+      "tags": ["lucid", "night"]
+    }
+  },
+  "GET /api/dreams/:dream_id": {
+    "description": "retrieves a single dream by its ID",
+    "exampleResponse": {
+      "dream_id": 2,
+      "user_id": 5,
+      "date_logged": "2025-06-20",
+      "description": "I was flying over a neon city...",
+      "tags": ["lucid", "night"]
+    }
+  },
+  "PATCH /api/dreams/:dream_id": {
+    "description": "updates dream content (e.g. description or tags)",
+    "accepts": {
+      "description": "Updated dream description",
+      "tags": ["lucid", "flying"]
+    },
+    "exampleResponse": {
+      "dream_id": 2,
+      "user_id": 5,
+      "date_logged": "2025-06-20",
+      "description": "Updated dream description",
+      "tags": ["lucid", "flying"]
+    }
+  },
+  "DELETE /api/dreams/:dream_id": {
+    "description": "deletes a dream by its ID",
+    "exampleResponse": {}
+  }
+}

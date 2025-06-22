@@ -2,7 +2,7 @@
   "name": "dream-journal-be",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+"main": "listen.js",
   "scripts": {
     "setup-dbs": "psql -f db/setup.sql",
     "seed": "PGDATABASE=every_noise node ./db/seeds/run-seed.js",
@@ -24,8 +24,12 @@
   "homepage": "https://github.com/espiers13/dream-journal-be#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jest": "^30.0.2",
     "pg": "^8.16.2",
-    "pg-format": "^1.0.4"
+    "pg-format": "^1.0.4",
+    "supertest": "^7.1.1"
   }
 }
