@@ -1,0 +1,31 @@
+{
+  "name": "dream-journal-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "setup-dbs": "psql -f db/setup.sql",
+    "seed": "PGDATABASE=every_noise node ./db/seeds/run-seed.js",
+    "test": "jest",
+    "seed-test": "PGDATABASE=every_noise_test node db/run-seed.js",
+    "start": "node listen.js",
+    "seed-prod": "NODE_ENV=production npm run seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/espiers13/dream-journal-be.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/espiers13/dream-journal-be/issues"
+  },
+  "homepage": "https://github.com/espiers13/dream-journal-be#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.5.0",
+    "pg": "^8.16.2",
+    "pg-format": "^1.0.4"
+  }
+}
