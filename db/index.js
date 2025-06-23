@@ -1,5 +1,8 @@
 const { Pool } = require("pg");
 
+console.log("Running in:", ENV);
+console.log("DATABASE_URL is:", process.env.DATABASE_URL);
+
 const ENV = process.env.NODE_ENV || "development";
 const pathToFile = `${__dirname}/../.env.${ENV}`;
 
