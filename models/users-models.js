@@ -52,6 +52,8 @@ exports.postUser = (newUser) => {
             msg: "Email already exists",
           });
         }
+        // Important: propagate other errors
+        return Promise.reject(err);
       });
   });
 };
