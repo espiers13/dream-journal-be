@@ -1,13 +1,19 @@
 const db = require("../db/index");
 
-exports.fetchDreamsByUser = (user_id, tag, start_date, end_date, sort) => {
+exports.fetchDreamsByUser = (
+  user_id,
+  tags = [],
+  start_date,
+  end_date,
+  sort
+) => {
   let queryStr = `SELECT * FROM dreams WHERE user_id = $1`;
   const queryParams = [user_id];
   let paramIndex = 2;
 
-  if (tag) {
+  if (tags.length > 0) {
     queryStr += ` AND tags @> $${paramIndex}::jsonb`;
-    queryParams.push(JSON.stringify([tag]));
+    queryParams.push(JSON.stringify(tags));
     paramIndex++;
   }
 

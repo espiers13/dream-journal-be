@@ -7,15 +7,20 @@ const {
 
 exports.getDreamsByUser = (req, res, next) => {
   const { user_id } = req.params;
-  const { tag, start_date, end_date, sort } = req.query;
+  const { start_date, end_date, sort } = req.query;
 
-  fetchDreamsByUser(user_id, tag, start_date, end_date, sort)
+  // Normalize tag to always be an array
+  const tags = req.query.tag
+    ? Array.isArray(req.query.tag)
+      ? req.query.tag
+      : [req.query.tag]
+    : [];
+
+  fetchDreamsByUser(user_id, tags, start_date, end_date, sort)
     .then((dreamsData) => {
       res.status(200).send(dreamsData);
     })
-    .catch((err) => {
-      next(err);
-    });
+    .catch(next);
 };
 
 exports.postDreamToUser = (req, res, next) => {
