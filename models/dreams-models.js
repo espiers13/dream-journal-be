@@ -1,7 +1,7 @@
 const db = require("../db/index");
 
 exports.fetchDreamsByUser = (user_id, tag, start_date, end_date, sort) => {
-  let queryStr = `SELECT date_logged, description, tags FROM dreams WHERE user_id = $1`;
+  let queryStr = `SELECT * FROM dreams WHERE user_id = $1`;
   const queryParams = [user_id];
   let paramIndex = 2;
 

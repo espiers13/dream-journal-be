@@ -128,7 +128,7 @@ describe("Delete user test - POST /api/auth/delete/user", () => {
   });
 });
 
-describe("Get dreams test - GET /api/:user_id/dreams", () => {
+describe.only("Get dreams test - GET /api/:user_id/dreams", () => {
   test("Status code 200: will return an array of all dream objects when passed through a user_id", () => {
     return request(app)
       .get("/api/1/dreams")
@@ -138,6 +138,7 @@ describe("Get dreams test - GET /api/:user_id/dreams", () => {
           expect(dream).toHaveProperty("date_logged");
           expect(dream).toHaveProperty("description");
           expect(dream).toHaveProperty("tags");
+          expect(dream).toHaveProperty("id");
         });
       });
   });
